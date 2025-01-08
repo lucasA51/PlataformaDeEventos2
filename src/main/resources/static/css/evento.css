@@ -1,0 +1,34 @@
+.event-details-container {
+    max-width: 800px;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.event-details-container h1 {
+    color: #337AB7;
+}
+
+.container-event {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background-color: #f9f9f9;
+}
+
+.event-image {
+    width: 100%;''
+    border-radius: 10px;
+    margin: 1rem 0;
+}
+
+.event-description p {
+    text-align: left;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+}

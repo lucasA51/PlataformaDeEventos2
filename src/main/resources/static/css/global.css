@@ -1,0 +1,145 @@
+/* Reset e estilo básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    font-family: "Montserrat", serif;
+    font-weight: 700;
+    font-style: normal;
+    background-color: #FFFFFF;
+    color: #333;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilos da navbar */
+.navbar-custom {
+    background-color: transparent;
+    color: #2b3c5d;
+    padding: 1rem 2rem;
+}
+
+.navbar-custom .navbar-brand {
+    color: #2b3c5d;
+    font-size: 2rem;
+    margin-left: 15px;
+    text-decoration: none;
+}
+
+.navbar-custom .navbar-brand:hover {
+    color: #2b3c5d; /* Mantém a cor ao passar o mouse */
+}
+
+.navbar-custom .nav-link {
+    color: #337AB7;
+    font-size: 18px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-right: 5px;
+}
+.navbar-custom .nav-link:hover {
+    color: #286090;
+    background-color: #e0e0e0;
+}
+
+/* Borda para o link "Cadastre-se" */
+.navbar-custom .nav-link.cadastro {
+    border: 1px solid #337AB7;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #337AB7;
+}
+
+.navbar-custom .nav-link.cadastro:hover {
+    background-color: #337AB7;
+    color: #fff;
+}
+
+/* Estilos Rodapé */
+.footer {
+    background-color: #2B3C5D;
+    color: #fff;
+    padding: 28px 0;
+    text-align: center;
+    font-family: "Montserrat", sans-serif; /* Usar sans-serif para mais modernidade */
+    width: 100%;
+    margin-top: auto;
+    box-sizing: border-box;
+}
+
+/* Contêiner do conteúdo do rodapé */
+.footer-content {
+    max-width: 1000px; /* Limitar largura para não esticar demais em telas grandes */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Estilo para o texto do rodapé */
+.footer-content p {
+    margin: 0;
+    padding: 10px 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: #FFFFFF; /* Cor suave para o texto */
+}
+
+/* Links do Rodapé */
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.footer-links a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s, transform 0.3s ease;
+    font-weight: 500;
+    padding: 5px 10px;
+}
+
+.footer-links a:hover {
+    transform: translateY(-2px);
+}
+
+.subscribe-button {
+    padding: 10px 20px;
+    background-color: #337AB7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    font-family: "Montserrat", serif;
+}
+
+.subscribe-button:hover {
+    background-color: #286090;
+}
+.login-button {
+    border: 1px solid #337AB7;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 18px;
+    text-align: center;
+    transition: background-color 0.3s;
+    margin-right: 5px;
+    text-decoration: none;
+    width: 100%;
+    color: #337AB7;
+    background: #FFFFFF;
+    font-weight: bold;
+}
+
+.login-button:hover {
+    background-color: #337AB7;
+    color: #fff;
+}
