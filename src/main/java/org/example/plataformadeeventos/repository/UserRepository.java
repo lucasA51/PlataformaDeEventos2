@@ -3,6 +3,8 @@ package org.example.plataformadeeventos.repository;
 import org.example.plataformadeeventos.model.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.Optional;
+
 public interface UserRepository extends JpaRepository<Usuario, Long> {
-    Usuario findByEmail(String email);
+    Optional<Usuario> findByEmail(String email);
 }
