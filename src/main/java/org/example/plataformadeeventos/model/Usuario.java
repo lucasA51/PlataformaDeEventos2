@@ -1,5 +1,6 @@
 package org.example.plataformadeeventos.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -28,6 +29,7 @@ public class Usuario {
             joinColumns = @JoinColumn(name = "usuario_id"),
             inverseJoinColumns = @JoinColumn(name = "evento_id")
     )
+    @JsonManagedReference
     private List<Evento> eventos;
 
 }

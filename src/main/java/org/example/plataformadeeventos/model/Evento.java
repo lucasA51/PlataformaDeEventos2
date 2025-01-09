@@ -1,6 +1,7 @@
 package org.example.plataformadeeventos.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -26,5 +27,6 @@ public class Evento {
     private String imagem;
 
     @ManyToMany(mappedBy = "eventos")
+    @JsonIgnore
     private List<Usuario> usuarios;
 }
