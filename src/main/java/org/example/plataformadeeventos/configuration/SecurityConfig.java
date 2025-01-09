@@ -28,9 +28,7 @@ public class SecurityConfig {
                         authorizeRequests
                                 .requestMatchers("/", "/users/register", "/cadastro"
                                         , "/login", "/css/**", "/js/**", "/img/**", "/fonts/**", "/static/**").permitAll()
-                                .requestMatchers("/","/noticias/ler/*", "/usuarios/registrar"
-                                        , "/usuarios/login", "/stylesheets/**", "/scripts/**", "/images/**", "/fonts/**", "/static/**").permitAll()
-                                .requestMatchers("/cadastroevento").authenticated()
+                                .requestMatchers("/cadastroevento").hasAuthority("ADMIN")
                                 .anyRequest().permitAll()
                 )
                 .formLogin(formLogin ->
@@ -39,6 +37,14 @@ public class SecurityConfig {
                                 .loginProcessingUrl("/login")
                                 .defaultSuccessUrl("/cadastroevento", true)
                                 .failureUrl("/login")
+                                .permitAll()
+                )
+                .logout(logout ->
+                        logout
+                                .logoutUrl("/logout")
+                                .logoutSuccessUrl("/") // Redireciona para a página inicial após o logout
+                                .invalidateHttpSession(true) // Invalida a sessão
+                                .deleteCookies("JSESSIONID") // Remove o cookie de sessão
                                 .permitAll()
                 )
                 /*.logout(logout ->

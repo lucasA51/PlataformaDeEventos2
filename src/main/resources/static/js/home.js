@@ -1,3 +1,25 @@
+/*// Função para verificar se o usuário está logado
+function checkUserLoggedIn() {
+    fetch("/api/authenticated") // Endpoint que retorna o estado da autenticação
+        .then((response) => {
+            if (response.ok) {
+                return response.json();
+            }
+            throw new Error("Falha ao verificar autenticação");
+        })
+        .then((data) => {
+            const logoutNavItem = document.querySelector(".nav-item a[href='/logout']");
+            if (data.authenticated) {
+                logoutNavItem.style.display = "block"; // Mostra o botão de logout
+            } else {
+                logoutNavItem.style.display = "none"; // Esconde o botão de logout
+            }
+        })
+        .catch((error) => {
+            console.error("Erro ao verificar autenticação:", error);
+        });
+}*/
+
 // Função para buscar eventos e injetá-los no carrossel e nos cards
 function fetchEventos() {
   fetch("/api/eventos")
@@ -130,4 +152,5 @@ function moveCarousel(direction) {
 // Carrega os eventos ao carregar a página
 window.onload = function () {
   fetchEventos();
+  // checkUserLoggedIn();
 };
