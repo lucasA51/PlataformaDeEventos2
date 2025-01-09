@@ -1,10 +1,18 @@
 package org.example.plataformadeeventos.controller;
 
 import org.example.plataformadeeventos.model.Evento;
+import org.example.plataformadeeventos.repository.EventoRepository;
+import org.example.plataformadeeventos.repository.UserRepository;
+import org.example.plataformadeeventos.service.CustomUserDetailsService;
 import org.example.plataformadeeventos.service.EventoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
+
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -46,5 +54,28 @@ public class EventoController {
         Evento evento = eventoService.buscarPorId(id);
         return ResponseEntity.ok(evento);
     }
+
+    @Autowired
+    private EventoRepository eventoRepository;
+
+    @Autowired
+    private UserRepository usuarioRepository;
+
+    @PostMapping("/{eventoId}/inscrever")
+    public ResponseEntity<String> inscreverUsuario(@PathVariable Long eventoId, @AuthenticationPrincipal UserDetails userDetails) {
+        if (userDetails == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Usuário não autenticado");
+        }
+
+        String email = userDetails.getUsername(); // UserDetails fornece o método getUsername()
+
+        try {
+            eventoService.inscreverUsuarioNoEvento(eventoId, email);
+            return ResponseEntity.ok("Usuário inscrito com sucesso!");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
+    }
+
 
 }

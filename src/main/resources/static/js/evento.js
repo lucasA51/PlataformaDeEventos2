@@ -28,7 +28,7 @@ function fetchEventDetails(eventId) {
                 <div class="event-description">
                     <p>${event.descricao}</p>
                 </div>
-                <button class="subscribe-button">Inscreva-se no Evento</button>
+                <button class="subscribe-button" onclick="subscribeToEvent(${event.id})">Inscreva-se no Evento</button>
             `;
     })
     .catch((error) => {
@@ -50,6 +50,29 @@ function formatDate(dateString) {
 function formatTime(timeString) {
   return timeString.slice(0, 5); // Formato HH:mm
 }
+
+// Função para inscrever o usuário no evento
+function subscribeToEvent(eventId) {
+  fetch(`/api/eventos/${eventId}/inscrever`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+      .then((response) => {
+        if (response.ok) {
+          alert("Inscrição realizada com sucesso!");
+        } else {
+          return response.text().then((text) => {
+            throw new Error(text);
+          });
+        }
+      })
+      .catch((error) => {
+        alert("Erro ao realizar inscrição: " + error.message);
+      });
+}
+
 
 // Ao carregar a página, obtemos o ID do evento e buscamos seus detalhes
 window.onload = function () {

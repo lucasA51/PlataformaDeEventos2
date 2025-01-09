@@ -24,6 +24,7 @@ public class Evento {
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private LocalDateTime dataFim;
     private String imagem;
+
     @ManyToMany(mappedBy = "eventos")
     private List<Usuario> usuarios;
 }

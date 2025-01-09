@@ -9,16 +9,21 @@ function checkUserLoggedIn() {
         })
         .then((data) => {
             const logoutNavItem = document.querySelector(".nav-item a[href='/logout']");
+            const loginNavItem = document.querySelector(".nav-item a[href='/login']");
+
             if (data.authenticated) {
                 logoutNavItem.style.display = "block"; // Mostra o botão de logout
+                loginNavItem.style.display = "none"; // Mostra o botão de login
             } else {
                 logoutNavItem.style.display = "none"; // Esconde o botão de logout
+                loginNavItem.style.display = "block"; // Mostra o botão de login
             }
         })
         .catch((error) => {
             console.error("Erro ao verificar autenticação:", error);
         });
 }
+
 
 // Função para buscar eventos e injetá-los no carrossel e nos cards
 function fetchEventos() {
