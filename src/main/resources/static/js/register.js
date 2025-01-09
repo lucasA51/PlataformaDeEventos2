@@ -8,7 +8,7 @@ document
             email: document.getElementById("email").value,
             nome: document.getElementById("fullname").value,
             senha: document.getElementById("password").value,
-            administrador: false
+            administrador: true//false
         };
 
         console.log("Usuário para enviar:", usuario); // Log para ver o que está sendo enviado

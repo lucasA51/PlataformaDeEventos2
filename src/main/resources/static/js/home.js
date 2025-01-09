@@ -1,4 +1,4 @@
-/*// Função para verificar se o usuário está logado
+// Função para verificar se o usuário está logado
 function checkUserLoggedIn() {
     fetch("/api/authenticated") // Endpoint que retorna o estado da autenticação
         .then((response) => {
@@ -18,7 +18,7 @@ function checkUserLoggedIn() {
         .catch((error) => {
             console.error("Erro ao verificar autenticação:", error);
         });
-}*/
+}
 
 // Função para buscar eventos e injetá-los no carrossel e nos cards
 function fetchEventos() {
@@ -152,5 +152,5 @@ function moveCarousel(direction) {
 // Carrega os eventos ao carregar a página
 window.onload = function () {
   fetchEventos();
-  // checkUserLoggedIn();
+  checkUserLoggedIn();
 };

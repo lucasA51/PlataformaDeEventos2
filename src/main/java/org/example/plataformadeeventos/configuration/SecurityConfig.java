@@ -47,12 +47,8 @@ public class SecurityConfig {
                                 .deleteCookies("JSESSIONID") // Remove o cookie de sessão
                                 .permitAll()
                 )
-                /*.logout(logout ->
-                        logout
-                                .logoutUrl("/logout")
-                                .logoutSuccessUrl("/usuarios/login?logout=true")
-                                .permitAll()
-                )*/;
+                .exceptionHandling()
+                    .accessDeniedPage("/"); // Redireciona para a home quando o usuário não tem permissão
         return http.build();
     }
 
