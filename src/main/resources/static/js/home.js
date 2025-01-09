@@ -10,13 +10,16 @@ function checkUserLoggedIn() {
         .then((data) => {
             const logoutNavItem = document.querySelector(".nav-item a[href='/logout']");
             const loginNavItem = document.querySelector(".nav-item a[href='/login']");
+            const eventosNavItem = document.querySelector(".nav-item a[href='/meuseventos']");
 
             if (data.authenticated) {
                 logoutNavItem.style.display = "block"; // Mostra o botão de logout
                 loginNavItem.style.display = "none"; // Mostra o botão de login
+                eventosNavItem.style.display = "block" // Mostra botão para eventos inscritos
             } else {
                 logoutNavItem.style.display = "none"; // Esconde o botão de logout
                 loginNavItem.style.display = "block"; // Mostra o botão de login
+                eventosNavItem.style.display = "none" // Esconde botão para eventos inscritos
             }
         })
         .catch((error) => {

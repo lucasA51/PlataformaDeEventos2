@@ -22,6 +22,11 @@ public class HomeController {
         return "cadastroevento";
     }
 
+    @GetMapping("/meuseventos")
+    public String meuseventos(Evento evento) {
+        return "meuseventos";
+    }
+
     @GetMapping("/login")
     public String login() {
         return "login";
